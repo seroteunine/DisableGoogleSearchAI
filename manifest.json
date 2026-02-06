@@ -1,18 +1,32 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Disable Google Search AI",
-  "description": "Disables AI results in Google search by appending '-ai' to the search query.",
+  "description": "Remove AI overviews from Google Search results by automatically appending '-ai' to your queries.",
   "version": "1.0",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": true
+  "author": "Your Name",
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
   },
-  "browser_action": {
-    "default_title": "View logged URLs",
-    "default_popup": "popup.html"
+  "action": {
+    "default_title": "Toggle Google AI Control",
+    "default_icon": {
+      "16": "icons/icon-16.svg",
+      "48": "icons/icon-48.svg",
+      "128": "icons/icon-128.svg"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "permissions": [
-    "tabs", 
-    "webNavigation"
+    "tabs",
+    "webNavigation",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ]
 }
